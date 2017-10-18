@@ -8,7 +8,16 @@ class SearchService
 
   def search(location)
     response = @conn.get "nearest.json?location=#{location}&radius=6&fuel_type=ELEC,LPG"
-    JSON.parse(response.body, symbolize_names: true)
+    search_results = JSON.parse(response.body, symbolize_names: true)
+    limit_search(search_results)
+  end
+
+  def limit_search(search_results)
+    search_results[:fuel_stations][0..9]
+  end
+
+  def name
+    @search_results[:fuel_stations][:station_name]
   end
 
   def self.search(location)
