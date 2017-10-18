@@ -10,7 +10,7 @@ And for each of the stations I should see Name, Address, Fuel Types, Distance, a
 <h1>Search Results</h1>
 
 <ol>
-  <% @search_results.each do |station| %>
+  <% @search_results.first_ten.each do |station| %>
     <li>Station Name: <%= station.name %></li>
       <ul>
         <li>Address: <%= station.address %></li>
