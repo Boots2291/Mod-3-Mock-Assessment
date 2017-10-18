@@ -1,7 +1,7 @@
 class SearchService
   def initialize
     @conn = Faraday.new(:url => 'https://developer.nrel.gov/api/alt-fuel-stations/v1') do |faraday|
-      faraday.headers['X-Api-Key'] = 'GOMaGJFgLFE8sIl5TzIqqYC9JBiPymZTj6QkCowT'
+      faraday.headers['X-Api-Key'] = ENV['NREL_KEY']
       faraday.adapter  Faraday.default_adapter
     end
   end
