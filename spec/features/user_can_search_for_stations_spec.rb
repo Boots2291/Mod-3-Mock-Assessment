@@ -14,5 +14,8 @@ describe 'A user' do
     expect(page).to have_content(station.first.fuel_type)
     expect(page).to have_content(station.first.distance)
     expect(page).to have_content(station.first.access_time)
+    expect(page).to have_content('Electric')
+    expect(page).to have_content('Propane')    
+    expect(page).to_not have_content('Liquefied Natural Gas')
   end
 end
